@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
 </head>
+
 <body>
-    <h1>hola amigos!</h1>
-    <p>Numero de conferencias {{ num_meetings }}</p>
+    <h1>Welcome to the meeting planner!</h1>
+
+
+    <h2>Meetings</h2>
+    <ul>
+        {% for m  in meetings %}
+        <li>
+            <a href='{% url 'detail' m.id %}'>{{m.title}}</a>
+        </li>
+
+
+        {% endfor %}
+
+    </ul>
+
+    <a href="{% url 'rooms' %}">List of rooms</a>
+
 </body>
+
 </html>

@@ -7,7 +7,7 @@ from meetings.models import Meeting
 
 
 def welcome(request):
-    context = {'num_meetings': Meeting.objects.count()}
+    context = {'meetings': Meeting.objects.all()}
     return render(request,'website/home.html',context)
 
 def date(request):
