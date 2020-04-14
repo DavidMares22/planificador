@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'website/base.html' %}
+
+{% block content %}
     
-    <p>List of rooms</p>
+    <h1>List of rooms</h1>
 
     <ul>
 
@@ -19,5 +14,6 @@
 
     </ul>
 
-</body>
-</html>
+    <a href="{% url 'home' %}">home page</a>
+ 
+{% endblock content %}
