@@ -1,0 +1,25 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+<div class="col-lg-6 ">
+
+
+
+<form action="" method="post">
+{% csrf_token %}
+
+ {% for field in form %}
+    <div class="form-group ">
+        <label for="{{ field.name }}">{{ field.label }}</label>
+        {{ field }}
+    </div>        
+{% endfor %}
+{% comment %} {{ form }} {% endcomment %}
+<button type="submit" class="btn btn-success">Save meeting</button>
+</form>
+
+</div>
+</div>
+{% endblock content %}
