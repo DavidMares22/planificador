@@ -20,9 +20,7 @@ def new(request):
     if request.method == 'POST':
         
         form = MeetingForm(request.POST)
-        if form.is_valid():
-            # forms['room'] = Room.objects.get(pk=form.cleaned_data.get("room"))
-
+        if form.is_valid():            
             form.save()
             return redirect('home')
             

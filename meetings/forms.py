@@ -1,6 +1,8 @@
 from django import forms
 from .models import Meeting,Room
-from django.forms.fields import MultipleChoiceField
+from datetime import date
+from django.core.exceptions import ValidationError
+
 
 class MeetingForm(forms.ModelForm):
    
@@ -14,5 +16,11 @@ class MeetingForm(forms.ModelForm):
             'duration': forms.TextInput(attrs={'class': 'form-control'}),
             'room': forms.Select(attrs={'class': 'form-control'}),
         }
+
+    def clean_date(self):
+        d = self.cleaned_data.get("date")
+        if d < date.today():
+            raise ValidationError('Meetings can not be in the past')
+        return d
 
        
