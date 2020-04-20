@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from website.views import welcome,date,loginuser,logoutuser
+from website.views import welcome,date,loginuser,logoutuser,registeruser
 # from django.contrib.auth import views as auth_views
 
 
@@ -27,5 +27,6 @@ urlpatterns = [
     path('meetings/', include('meetings.urls')),
     path('login/',loginuser,name='login'),
     path('logout', logoutuser,name='logout'),
+    path('register',registeruser,name='register'),
 
 ]

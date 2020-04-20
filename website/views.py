@@ -5,7 +5,11 @@ from meetings.models import Meeting
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
-from .forms import MyAuthForm
+from django.contrib.auth.models import User
+from .forms import MyAuthForm,MyregForm
+from django.db import IntegrityError
+
+
 
 
 # Create your views here.
@@ -37,3 +41,21 @@ def loginuser(request):
 def logoutuser(request):
     do_logout(request)
     return redirect('home')
+
+
+def registeruser(request):
+    if request.method == 'POST':
+        form = MyregForm(request.POST)
+        if form.is_valid():
+            user = User()
+            user.save()
+            if user is not None:
+                
+                do_login(request, user)
+                
+                return redirect('home')            
+
+    else:
+        form = MyregForm()
+    return render(request, 'website/register.html', {'form': form})
+
