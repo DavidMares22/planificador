@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from website.views import welcome,date
+from website.views import welcome,date,loginuser,logoutuser
+# from django.contrib.auth import views as auth_views
 
 
 
@@ -23,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', welcome, name='home'),
     path('date/', date),
-    path('meetings/', include('meetings.urls'))
+    path('meetings/', include('meetings.urls')),
+    path('login/',loginuser,name='login'),
+    path('logout', logoutuser,name='logout'),
 
 ]

@@ -16,6 +16,8 @@ def room(request):
     return render(request,'meetings/rooms.html',context)
 
 
+
+
 def new(request):
     if request.method == 'POST':
         

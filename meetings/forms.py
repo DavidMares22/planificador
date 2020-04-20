@@ -11,7 +11,8 @@ class MeetingForm(forms.ModelForm):
         fields = ['title','date','start_time','duration','room']    
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'yyyy-mm-dd'}),
+            # 'date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'yyyy-mm-dd'}),
+            'date': forms.DateInput(attrs={'class': 'form-control','type':'date'}),
             'start_time': forms.TextInput(attrs={'class': 'form-control'}),
             'duration': forms.TextInput(attrs={'class': 'form-control'}),
             'room': forms.Select(attrs={'class': 'form-control'}),
